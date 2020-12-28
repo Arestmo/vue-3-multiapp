@@ -1,6 +1,7 @@
 <template>
   <nav class="w-full bg-gradient-to-r from-blue-800 to-blue-600 text-white py-4 px-4">
-    <a href="#" class="header-item px-2 py-3"> Heros List </a>
+    <router-link to="/list-app" class="header-item px-2 py-3 mx-3">List App</router-link>
+    <router-link to="/calendar-app" class="header-item px-2 py-3 mx-3">Calendar App</router-link>
   </nav>
 </template>
 
