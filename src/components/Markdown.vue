@@ -21,7 +21,7 @@ export default {
     }
   },
   mixins: [
-      debounce,
+    debounce,
   ],
   computed: {
     markedText() {
@@ -31,7 +31,7 @@ export default {
   methods: {
     updateText(e) {
       const task = () => (this.text = e.target.value);
-      this.debounce(task,500);
+      this.debounce(task, 500);
     }
   }
 }
