@@ -1,6 +1,9 @@
 <template>
   <nav class="w-full bg-gradient-to-r from-blue-800 to-blue-600 text-white py-4 px-4">
-    <router-link v-for="item in items" :key="item.to" :to=item.to class="header-item px-2 py-3 mx-3">{{ item.title }}</router-link>
+    <router-link v-for="item in items" :key="item.to" :to=item.to class="header-item px-2 py-3 mx-3">{{
+        item.title
+      }}
+    </router-link>
   </nav>
 </template>
 
@@ -10,18 +13,10 @@ export default {
   data() {
     return {
       items: [
-        {
-          title: 'List App',
-          to: '/list-app'
-        },
-        {
-          title: 'Calendar App',
-          to: '/calendar-app'
-        },
-        {
-          title: 'Markdown App',
-          to: '/markdown-app'
-        },
+        { title: 'List App',      to: '/list-app'},
+        { title: 'Calendar App',  to: '/calendar-app'},
+        { title: 'Markdown App',  to: '/markdown-app'},
+        { title: 'Slider App',  to: '/slider-app'},
       ]
     }
   }
