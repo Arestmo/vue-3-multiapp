@@ -38,7 +38,8 @@
                 type="submit"
                 class="submit-button w-full rounded shadow bg-gradient-to-r from-blue-800 to-blue-600 text-white py-2"
             >
-              Login
+              <span v-if="!isLoading">Login</span>
+              <span v-else>Login ⏳</span>
             </button>
           </div>
         </form>
@@ -56,21 +57,23 @@ export default {
     return {
       email: '',
       password: '',
+      isLoading: false,
 
     }
   },
   methods: {
     submitLogin() {
+      this.isLoading = true;
       firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-          .then((user) => {
-            console.log(user + ' Logged')
+          .then(() => {
+            this.isLoading = false;
+            this.email = '';
+            this.password = '';
+            this.$emit('close-login-modal');
           })
           .catch((error) => {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-
-            console.log(errorCode);
-            console.log(errorMessage);
+            console.log(error)
+            this.isLoading = false;
           });
       console.log(this.form)
 
