@@ -15,7 +15,7 @@
         </div>
 
         <h1 class="text-2xl w-full text-center">LOGIN MODAL</h1>
-        <form @submit.prevent="submitLogin">
+        <form @submit.prevent="submitLogin" class="w-full">
           <div class="modal-container-row">
             <label>Email or username</label>
             <input
@@ -43,6 +43,14 @@
             </button>
           </div>
         </form>
+
+        <div class="flex justify-between w-full">
+          <button
+              @click="loginWithGoogle"
+              class="w-full rounded shadow bg-gradient-to-r from-blue-800 to-blue-600 text-white py-2 ">Login with
+            Google
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -77,6 +85,13 @@ export default {
           });
       console.log(this.form)
 
+    },
+
+    loginWithGoogle() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider).then(()=> {
+        this.$emit('close-login-modal');
+      });
     }
   }
 }
