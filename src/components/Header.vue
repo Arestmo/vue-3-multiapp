@@ -10,13 +10,23 @@
         }}
       </router-link>
     </div>
-    <button
-        @click="$emit('open-login-modal')"
-        class="header-item px-6 py-3 mx-3">Login</button>
+    <div class="flex">
+      <button
+          @click="$emit('open-login-modal')"
+          class="header-item px-6 py-3 mx-3">Login
+      </button>
+      <button
+          @click="logoutUser"
+          class="header-item px-6 py-3 mx-3">Logout
+      </button>
+    </div>
   </nav>
+
 </template>
 
 <script>
+import firebase from "@/utilities/firebase";
+
 export default {
   name: "Header",
   data() {
@@ -27,6 +37,18 @@ export default {
         {title: 'Markdown App', to: '/markdown-app'},
         {title: 'Slider App', to: '/slider-app'},
       ]
+    }
+  },
+  methods: {
+    logoutUser() {
+      firebase.auth().signOut()
+          .then((res) => {
+            console.log(res)
+          })
+          .catch((e) => {
+            console.log(e)
+          });
+
     }
   }
 }

@@ -23,14 +23,18 @@ export default {
   data() {
     return {
       isLoginModal: false,
+      isLoggedIn: false,
+      authUser: {},
     }
   },
   mounted() {
-    firebase.auth().onAuthStateChanged(function(user) {
+    firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        console.log(user)
+        this. isLoggedIn = true;
+        this.authUser = user;
       } else {
-        console.log("No User")
+        this.isLoggedIn = false;
+        this.authUser = {};
       }
     });
   }
