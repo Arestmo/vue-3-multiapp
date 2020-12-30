@@ -1,9 +1,18 @@
 <template>
-  <nav class="w-full bg-gradient-to-r from-blue-800 to-blue-600 text-white py-4 px-4">
-    <router-link v-for="item in items" :key="item.to" :to=item.to class="header-item px-2 py-3 mx-3">{{
-        item.title
-      }}
-    </router-link>
+  <nav class="w-full bg-gradient-to-r flex justify-between from-blue-800 to-blue-600 text-white py-4 px-4">
+    <div class="flex">
+      <router-link
+          v-for="item in items"
+          :key="item.to"
+          :to=item.to
+          class="header-item px-2 py-3 mx-3">{{
+          item.title
+        }}
+      </router-link>
+    </div>
+    <button
+        @click="$emit('open-login-modal')"
+        class="header-item px-6 py-3 mx-3">Login</button>
   </nav>
 </template>
 
@@ -13,10 +22,10 @@ export default {
   data() {
     return {
       items: [
-        { title: 'List App',      to: '/list-app'},
-        { title: 'Calendar App',  to: '/calendar-app'},
-        { title: 'Markdown App',  to: '/markdown-app'},
-        { title: 'Slider App',  to: '/slider-app'},
+        {title: 'List App', to: '/list-app'},
+        {title: 'Calendar App', to: '/calendar-app'},
+        {title: 'Markdown App', to: '/markdown-app'},
+        {title: 'Slider App', to: '/slider-app'},
       ]
     }
   }
