@@ -12,10 +12,12 @@
     </div>
     <div class="flex">
       <button
+          v-if="!isLoggedIn"
           @click="$emit('open-login-modal')"
           class="header-item px-6 py-3 mx-3">Login
       </button>
       <button
+          v-else
           @click="logoutUser"
           class="header-item px-6 py-3 mx-3">Logout
       </button>
@@ -38,6 +40,9 @@ export default {
         {title: 'Slider App', to: '/slider-app'},
       ]
     }
+  },
+  props: {
+    isLoggedIn: Boolean,
   },
   methods: {
     logoutUser() {

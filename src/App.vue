@@ -1,5 +1,6 @@
 <template>
   <Header
+      :isLoggedIn=isLoggedIn
       @open-login-modal="isLoginModal = true"
   ></Header>
   <router-view></router-view>
