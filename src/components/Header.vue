@@ -38,6 +38,7 @@ export default {
         {title: 'Calendar App', to: '/calendar-app'},
         {title: 'Markdown App', to: '/markdown-app'},
         {title: 'Slider App', to: '/slider-app'},
+        {title: 'Calculator App', to: '/calculator-app'},
       ]
     }
   },
