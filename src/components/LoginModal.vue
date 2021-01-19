@@ -1,5 +1,5 @@
 <template>
-  <div class="modal h-screen w-screen fixed top-0">
+  <div class="modal h-screen w-screen fixed">
     <div
         @click="$emit('close-login-modal')"
         class="wall absolute w-full h-full bg-gray-500 inset-0 opacity-50"></div>
@@ -47,7 +47,7 @@
         <div class="flex justify-between w-full">
           <button
               @click="loginWithGoogle"
-              class="w-full rounded shadow bg-gradient-to-r from-blue-800 to-blue-600 text-white py-2 ">Login with
+              class="submit-button w-full rounded shadow bg-gradient-to-r from-blue-800 to-blue-600 text-white py-2 ">Login with
             Google
           </button>
         </div>

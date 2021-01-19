@@ -4,6 +4,7 @@ import Calendar from "@/components/Calendar";
 import Markdown from "@/components/Markdown";
 import Slider from "@/components/Slider";
 import Calculator from "@/components/Calculator";
+import ReModal from "@/components/ReModal";
 const routes = [
   {path: '/', component: Home},
   {path: '/list-app', component: Home},
@@ -11,6 +12,7 @@ const routes = [
   {path: '/markdown-app', component: Markdown},
   {path: '/slider-app', component: Slider},
   {path: '/calculator-app', component: Calculator},
+  {path: '/re-modal', component: ReModal},
 ]
 const router = createRouter({
   history: createWebHistory(),
